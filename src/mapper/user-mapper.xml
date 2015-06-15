@@ -16,6 +16,10 @@
 		select * from user;
 	</select>
 	
+	<select id="selectUser" parameterType="String" resultMap="userMap">
+		select * from user where user_id=#{userId}
+	</select>
+	
 	<resultMap type="User" id="userMap">
 		<result property="userId" column="user_id" />
 		<result property="userName" column="user_name" />

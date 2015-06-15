@@ -5,6 +5,8 @@ public class User {
 	private String userName;
 	private String userStatus;
 
+	public User(){}
+	
 	public User(String userId, String userName, String userStatus) {
 		this.userId = userId;
 		this.userName = userName;
