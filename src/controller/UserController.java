@@ -31,7 +31,7 @@ public class UserController {
 	}
 
 	// saveUsers.do
-	@RequestMapping(value = "saveUsers.do", method = RequestMethod.GET)
+	@RequestMapping(value = "saveUsers.do", method = RequestMethod.POST)
 	public void saveUsers(String usersJSON, HttpServletResponse response, HttpServletRequest request) {
 
 		System.out.println("saveUsers.do");
