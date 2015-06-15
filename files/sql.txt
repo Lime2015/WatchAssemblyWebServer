@@ -1,0 +1,14 @@
+
+drop database wadb;
+
+create database wadb;
+
+use wadb;
+
+create table user (	
+  user_id VARCHAR(30) NOT NULL primary key,
+  user_name VARCHAR(30) NOT NULL,
+  user_status VARCHAR(30)
+);
+
+
