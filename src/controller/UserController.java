@@ -36,7 +36,7 @@ public class UserController {
 
 		System.out.println("saveUsers.do");
 
-		usersJSON = request.getParameter("usersJSON");
+//		usersJSON = request.getParameter("usersJSON");
 		System.out.println("usersJSON:" + usersJSON);
 		
 //		String test = "[{\"userStatus\":\"no\",\"userName\":\"eekek\",\"userId\":\"eekek\"},{\"userStatus\":\"no\",\"userName\":\"namnam\",\"userId\":\"namnam\"}]";
