@@ -29,6 +29,7 @@ public class MemberInfoController {
 	// check MemberInfo
 	@RequestMapping(value = "checkMember.do", method = RequestMethod.POST)
 	public void checkMemberInfo(String memberJSON, HttpServletResponse response) {
+		System.out.println("checkMember.do:" + memberJSON);
 		Gson gson = new GsonBuilder().create();
 //		MemberInfo memberInfo = gson.fromJson(memberJSON, new TypeToken<MemberInfo>(){}.getType());
 		MemberInfo memberInfo = gson.fromJson(memberJSON, MemberInfo.class);
@@ -38,6 +39,7 @@ public class MemberInfoController {
 	// save MemberInfo
 	@RequestMapping(value = "saveMember.do", method = RequestMethod.POST)
 	public void saveMemberInfo(String memberJSON, HttpServletResponse response) {
+		System.out.println("saveMember.do:" + memberJSON);
 		Gson gson = new GsonBuilder().create();
 		MemberInfo memberInfo = gson.fromJson(memberJSON, MemberInfo.class);
 		service.saveMemberInfo(memberInfo, response);
