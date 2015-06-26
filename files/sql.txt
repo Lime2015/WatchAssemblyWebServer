@@ -1,4 +1,4 @@
-
+﻿
 drop database wadb;
 
 create database wadb;
@@ -32,6 +32,7 @@ CREATE TABLE `logon_info` (
 
 
 INSERT INTO logon_info(logon_type_id, logon_type_name) values(1, 'KAKAO');
+INSERT INTO member_info(member_id, member_nickname, logon_type_id) values('123456', '이향석', 1);
 
     
 
