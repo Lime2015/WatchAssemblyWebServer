@@ -38,6 +38,8 @@ public class AssemblymanService {
 		result = gson.toJson(list, new TypeToken<List<Assemblyman>>(){}.getType());
 
 		try {
+		    response.setCharacterEncoding("UTF8"); // this line solves the problem
+		    response.setContentType("application/json");
 			PrintWriter writer = response.getWriter();
 			writer.print(result);
 		} catch (IOException e) {
