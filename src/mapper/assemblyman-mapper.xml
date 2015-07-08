@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.AssemblymanMapper">
+	
+	<select id="selectList" resultMap="assemblymanMap">
+		select * from assemblyman;
+	</select>
+		
+	<resultMap type="Assemblyman" id="assemblymanMap">
+		<result property="assemblymanId" column="assemblyman_id" />
+		<result property="assemblymanName" column="assemblyman_name" />
+		<result property="imageUrl" column="image_url" />
+		<result property="orgImageUrl" column="org_image_url" />
+		<result property="modDttm" column="mod_dttm" />
+		<result property="partyId" column="party_id" />
+		<result property="partyName" column="party_name" />
+		<result property="localConstituency" column="local_constituency" />
+		<result property="updateTag" column="update_tag" />
+	</resultMap>
+	
+</mapper>
