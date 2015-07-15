@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.TagMapper">
+	
+	<select id="checkAssemblymanTag" resultMap="int">
+		select max(update_tag) from assemblyman;
+	</select>
+	
+	<select id="checkBillTag" resultMap="int">
+		select max(update_tag) from bill;
+	</select>
+	
+	<select id="checkCommitteeMeetingTag" resultMap="int">
+		select max(update_tag) from committee_meeting;
+	</select>
+	
+	<select id="checkGeneralMeetingTag" resultMap="int">
+		select max(update_tag) from general_meeting;
+	</select>
+	
+	<select id="checkPartyHistoryTag" resultMap="int">
+		select max(update_tag) from party_history;
+	</select>
+	
+	<select id="checkVoteTag" resultMap="int">
+		select max(update_tag) from vote;
+	</select>
+</mapper>
