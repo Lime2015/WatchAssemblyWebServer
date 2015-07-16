@@ -4,27 +4,27 @@
 
 <mapper namespace="mapper.TagMapper">
 	
-	<select id="checkAssemblymanTag" resultMap="int">
+	<select id="checkAssemblymanTag" resultType="Integer">
 		select max(update_tag) from assemblyman;
 	</select>
 	
-	<select id="checkBillTag" resultMap="int">
+	<select id="checkBillTag" resultType="Integer">
 		select max(update_tag) from bill;
 	</select>
 	
-	<select id="checkCommitteeMeetingTag" resultMap="int">
+	<select id="checkCommitteeMeetingTag" resultType="Integer">
 		select max(update_tag) from committee_meeting;
 	</select>
 	
-	<select id="checkGeneralMeetingTag" resultMap="int">
+	<select id="checkGeneralMeetingTag" resultType="Integer">
 		select max(update_tag) from general_meeting;
 	</select>
 	
-	<select id="checkPartyHistoryTag" resultMap="int">
+	<select id="checkPartyHistoryTag" resultType="Integer">
 		select max(update_tag) from party_history;
 	</select>
 	
-	<select id="checkVoteTag" resultMap="int">
+	<select id="checkVoteTag" resultType="Integer">
 		select max(update_tag) from vote;
 	</select>
 </mapper>

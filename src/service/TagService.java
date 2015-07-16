@@ -30,30 +30,31 @@ public class TagService {
 	}
 
 	// ////////////////////////////////////////////////////////////////
-	
+
 	public void checkTag(HttpServletResponse response) {
 		String result;
-		CheckTagResult rs = new CheckTagResult();
-		
+		CheckTagResult rs = new CheckTagResult(0, 0, 0, 0, 0, 0);
+
 		rs.setAssemblymanTag(dao.checkAssemblymanTag());
 		rs.setBillTag(dao.checkBillTag());
 		rs.setCommitteeMeetingTag(dao.checkCommitteeMeetingTag());
 		rs.setGeneralMeetingTag(dao.checkGeneralMeetingTag());
 		rs.setPartyHistoryTag(dao.checkPartyHistoryTag());
-		rs.setVoteTag(dao.checkVoteTag());		
-		
+		rs.setVoteTag(dao.checkVoteTag());
+
 		Gson gson = new GsonBuilder().create();
 
 		result = gson.toJson(rs, new TypeToken<CheckTagResult>(){}.getType());
+		System.out.println("checkTag.do:" + result);
 
 		try {
-		    response.setCharacterEncoding("UTF8"); // this line solves the problem
-		    response.setContentType("application/json");
+			response.setCharacterEncoding("UTF8"); // this line solves the problem
+			response.setContentType("application/json");
 			PrintWriter writer = response.getWriter();
 			writer.print(result);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 	}
 }
