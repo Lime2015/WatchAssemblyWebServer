@@ -2,22 +2,20 @@ package service;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
-import mapper.AssemblymanMapper;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import repository.TagDao;
+import result.CheckTagResult;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
-
-import repository.TagDao;
-import result.CheckTagResult;
-import vo.Assemblyman;
 
 @Component
 public class TagService {
@@ -33,15 +31,18 @@ public class TagService {
 
 	public void checkTag(HttpServletResponse response) {
 		String result;
-		CheckTagResult rs = new CheckTagResult(0, 0, 0, 0, 0, 0);
+		CheckTagResult rs = new CheckTagResult();
+		List<Integer> tagList = new ArrayList<Integer>();
 
-		rs.setAssemblymanTag(dao.checkAssemblymanTag());
-		rs.setBillTag(dao.checkBillTag());
-		rs.setCommitteeMeetingTag(dao.checkCommitteeMeetingTag());
-		rs.setGeneralMeetingTag(dao.checkGeneralMeetingTag());
-		rs.setPartyHistoryTag(dao.checkPartyHistoryTag());
-		rs.setVoteTag(dao.checkVoteTag());
+		tagList.add(dao.checkAssemblymanTag());
+		tagList.add(dao.checkBillTag());
+		tagList.add(dao.checkCommitteeMeetingTag());
+		tagList.add(dao.checkGeneralMeetingTag());
+		tagList.add(dao.checkPartyHistoryTag());
+		tagList.add(dao.checkVoteTag());
 
+		rs.setTagList(tagList);
+		
 		Gson gson = new GsonBuilder().create();
 
 		result = gson.toJson(rs, new TypeToken<CheckTagResult>(){}.getType());
